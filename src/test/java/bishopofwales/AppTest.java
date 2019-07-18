@@ -4,10 +4,21 @@
 package bishopofwales;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
+import no.uib.cipr.matrix.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        //assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    @Test public void testLineFit() {
+        //Make a line calculator and add two points to it
+        /*
+        LineCalculator classUnderTest = new LineCalculator();
+        classUnderTest.addPoint(0,0);
+        classUnderTest.addPoint(1,1);
+        //Get result
+        Vector res = classUnderTest.calcLine();
+        //Test that m is as expected
+        assertEquals(1,res.get(1), 0.000001);
+        //Test that b is as expected
+        */ 
     }
 }

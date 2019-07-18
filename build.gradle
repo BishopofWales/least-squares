@@ -44,3 +44,8 @@ javafx {
 
 // Define the main class for the application
 mainClassName = 'bishopofwales.App'
+
+// Define System.in as stdin
+run{
+    standardInput = System.in
+}
