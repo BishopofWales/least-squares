@@ -11,13 +11,13 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+
 public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        
         Parent root = FXMLLoader.load(getClass().getResource("/primary.fxml"));
-        primaryStage.setTitle("Synapse Project");
+        primaryStage.setTitle("Best Fit");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
