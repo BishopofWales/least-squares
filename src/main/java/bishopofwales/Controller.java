@@ -17,6 +17,7 @@ public class Controller {
 
     public static final int LINE_INC = 20;
     public static final double LINE_SPEED = 1;
+    public static final double POINT_RADIUS = 5;
     public LineCalculator lineCalculator;
     @FXML
     private Canvas graph;
@@ -47,13 +48,16 @@ public class Controller {
 
 
     }
+    public void drawPoint(Point point, GraphicsContext gc){
+        gc.setFill(Color.RED);
+        gc.fillOval(point.getX()-POINT_RADIUS, point.getY()-POINT_RADIUS, POINT_RADIUS*2, POINT_RADIUS*2);
+    }
     public void drawPoints(){
         GraphicsContext gc = graph.getGraphicsContext2D();
-        gc.setFill(Color.RED);
         
         
         for(Point point : lineCalculator.points){
-            gc.fillOval(point.getX(), point.getY(), 5, 5);
+            drawPoint(point, gc);
         }
     }
 
@@ -65,7 +69,6 @@ public class Controller {
         
         if(b > graph.getHeight()){
             //b is below the screen
-            System.out.println("caught!");
             double deltaY = b - graph.getHeight();
             double deltaX = deltaY/-m;
             x.set(deltaX);
@@ -122,8 +125,7 @@ public class Controller {
     public void handleGraphClick(MouseEvent me){
         //Draw point on canvas
         GraphicsContext gc = graph.getGraphicsContext2D();
-        gc.setFill(Color.RED);
-        gc.fillOval(me.getX(), me.getY(), 5, 5);
+        drawPoint(new Point(me.getX(), me.getY()), gc);
         //Add point to line calculator
         lineCalculator.addPoint(me.getX(),me.getY());
 
